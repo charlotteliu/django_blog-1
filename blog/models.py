@@ -65,7 +65,7 @@ class Article(models.Model) :
         ordering = ['-date_publish']
 
     def save(self):
-        self.content_markup = markdown(self.content_markdown, ['codehilite'])
+        self.content_markup = markdown(self.content_markdown, extensions=['markdown.extensions.codehilite(pygments_style=xcode,noclasses=True)'])
         super(Article, self).save()
 
     def __unicode__(self):
